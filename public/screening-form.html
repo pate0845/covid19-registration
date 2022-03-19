@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Covid-19 Screening</title>
+</head>
+<body>
+    <div class="container">
+        <div class="text">Covid-19 Screening</div>
+        <section class="screening-form">
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" id="fname" class="input-info" name="firstName" >
+                    <label>First Name</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" id="lname" class="input-info" name="lastName" >
+                    <label>Last Name</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" id="email" class="input-info" name="email" >
+                    <label>Email Address</label>
+                </div>
+                <div class="input-data">
+                    <input type="tel" id="phone" name="number" >
+                    <label>Phone Number</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" id="employeeId" name="employeeId" >
+                    <label>Employee ID</label>
+                </div>
+            </div>
+            <div class="form-select">
+                <div class="row-25">
+                    <div class="col-75">
+                    <label>Are you fully vaccinated against COVID-19?</label> 
+                    <select name = "vaccineStatus" id="vaccinated" >
+                        <option value="none" selected disabled hidden>Select Option</option>
+                        <option value = "yes">Yes</option>
+                        <option value = "no">No</option>
+                     </select>
+                </div>
+            </div>
+            </div>
+            <div class="form-select">
+                <div class="row-25">
+                    <div class="col-75">
+                        <label>Are you currently experiencing any of these issues? Call 911 if you are.</label>
+                        <ul>
+                            <li>Severe difficulty breathing</li>
+                            <li>Severe chest pain</li>
+                            <li>Feeling confused or unsure of where you are</li>
+                            <li>Losing consciousness</li>
+                        </ul>    
+                    <select name="symptoms" id="symptoms" >
+                        <option value="none" selected disabled hidden>Select Option</option>
+                        <option value = "yes">Yes</option>
+                        <option value = "no">No</option>
+                    </select>
+                </div>
+            </div>
+            </div>
+            <div class="form-select">
+                <div class="row-25">
+                    <div class="col-75">
+                        <label>In the last 14 days, have you travelled outside of Canada?</label>
+                        <select name="travelStatus" id="contamination" >
+                        <option value="none" selected disabled hidden>Select Option</option>
+                        <option value = "yes">Yes</option>
+                        <option value = "no">No</option>          
+                    </select>
+                </div>
+            </div>
+        </div>
+            <div class="form-select">
+                <div class="row-25">
+                    <div class="col-75">
+                    <label>In the last 14 days, have you been in close contact with someone diagnosed with Covid-19?</label>
+                    <select name="carrier" id="carrier" >
+                        <option value="none" selected disabled hidden>Select Option</option>
+                        <option value = "yes">Yes</option>
+                        <option value = "no">No</option>          
+                    </select>
+                </div>
+            </div>
+        </div>
+            <div class="form-select">
+                <div class="row-25">
+                    <div class="col-75"></div>
+                    <label>I accept all the information provided is correct.</label>
+                    <input type="checkbox" id="correctInfoProvided" name="correctInfoProvided" >
+            </div>
+        </div>
+        <div class="form-select">
+            <div class="row-25">
+                <div class="col-75">
+                <input type="date" id="date" name="date" >
+        </div>
+    </div>
+    </div>
+            <div class="form-select">
+                <div class="submit-btn">
+                    <div class="inner">
+                    <button type="submit" id="btn">Submit</button>
+                </div>
+            </div> 
+            <div class="form-select">
+                <div class="login-form" id="err"></div>
+                <div class="login-form">
+                    <a id="login" style="cursor: pointer;" href="./login.html">login here</a>
+                </div>
+            </div>   
+        </div>      
+        </section>
+    </div>
+        <!-- axios -->
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+    <script src="./browser-script.js"></script>
+</body>
+</html>

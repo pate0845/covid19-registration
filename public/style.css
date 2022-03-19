@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline:none;
+    font-size: 17px;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body{
+  font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding:40px;
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 74%, #83eaf1 74%);
+}
+
+.container{
+    opacity: .8;
+    background-color: #cdf0fd;
+    width: 800px;
+    max-width: 800px;
+    padding:25px 40px 10px 40px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+.container .text{
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    background: -webkit-linear-gradient(right,#63a4ff 50%, #83eaf1 74%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.container .screening-form{
+    padding: 30px 0 0 0 0;
+}
+.container .screening-form .form-row{
+    display: flex;
+    margin: 32px 0;
+}
+.screening-form .form-row .input-data{
+    width: 100%;
+    height: 40px;
+    margin: 0 20px;
+    position: relative;
+}
+
+.screening-form .form-row .text-area{
+    height: 70px;
+}
+
+.input-data input
+,.text-area textarea{
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid rgba(0,0,0,0.12);
+}
+.input-data input:focus ~ label, .textarea textarea:focus ~ label,
+.input-data input:valid ~ label, .textarea textarea:valid ~ label{
+  transform: translateY(-20px);
+  font-size: 14px;
+}
+.textarea textarea{
+  resize: none;
+  padding-top: 10px;
+}
+.input-data label{
+  position: absolute;
+  pointer-events: none;
+  bottom: 20px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.textarea label{
+  width: 100%;
+  bottom: 40px;
+  background: #fff;
+}
+.input-data .underline{
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+}
+.input-data .underline:before{
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background: #3498db;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before,
+.textarea textarea:focus ~ .underline:before,
+.textarea textarea:valid ~ .underline:before{
+  transform: scale(1);
+}
+.submit-btn .input-data{
+  overflow: hidden;
+  height: 45px!important;
+  width: 25%!important;
+}
+.submit-btn .input-data .inner{
+  height: 100%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+  transition: all 0.4s;
+}
+.submit-btn .input-data:hover .inner{
+  left: 0;
+}
+.submit-btn .input-data input{
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 700px) {
+  .container .text{
+    font-size: 30px;
+  }
+  .container .screening-form{
+    padding: 10px 0 0 0;
+  }
+  .container .screening-form .form-row{
+    display: block;
+  }
+  .screening-form .form-row .input-data{
+    margin: 35px 0!important;
+  }
+  .submit-btn .input-data{
+    width: 40%!important;
+  }
+}
+
+.form-select {
+    display: block;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    max-width: 840px;
+    margin-bottom: 5px;
+}
+
+.form-select .row-25 label{
+    align-items: center;
+    display: flex;
+    padding: 0;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.form-select .row-25 ul {
+    font-size: 17px;
+    display: inline-grid;
+    margin-left: 20px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+.form-select .col-75 select {
+    font-size: 17px;
+    padding: 12px;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+    display: block;
+}
+
+
+.form-select .submit-btn .inner button {
+    text-decoration: none;
+    background: transparent;
+    padding: 7px;
+    margin: 10px;
+    align-items: center;
+    border-radius: 20px;
+    text-align: center;
+    min-width: 100px;
+    display: block;
+    border-color: lightblue;
+}
+
+.form-select .col-75 input {
+  border-radius: 6px;
+  margin: 10px 0;
+  padding: 7px;
+  width: 180px;
+}
+
+.login-form{
+  margin:30px 0;
+  text-align: center;
+  font-size: 16px;
+  color:red;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./login.css" type="text/css">
+    <title>Admin Login</title>
+</head>
+<body>
+    <div class="center">
+        <h1>Login</h1>
+        <form>
+            <div class="txt_field">
+                <input type="text"  id="user" name="user" required>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" id="password" name="password" autocomplete="current-password" required>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div class="pass">Forgot Password</div>
+            <input type="submit" id="login">
+            <div class="signup_link">Not a member? <a href="#">Signup</a></a></div>
+            <div id="error">
+            </div>
+        </form>
+    </div>
+    <!-- axios -->
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+    integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+    <script src="./login.js"></script>
+</body>
+</html>
