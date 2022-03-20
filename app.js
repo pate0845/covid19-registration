@@ -28,14 +28,14 @@ const urlencodedParser=bodyParser.urlencoded({extended:false})
 
 
 app.use('https://covid19-screening-app23.herokuapp.com/api/v1/data',screening)   //screening form 
-app.use('/https://covid19-screening-app23.herokuapp.com/user',urlencodedParser,loginAuth)  //user validation
+app.use('/user',urlencodedParser,loginAuth)  //user validation
 
 
 
 const port=3000;
 const start=async ()=>{
     try{
-        await connectDB();
+        await connectDB;
         app.listen(process.env.PORT ||port,console.log(`server listening`))
     }catch(error){
         console.log(error)
