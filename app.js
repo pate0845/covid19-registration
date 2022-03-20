@@ -27,8 +27,8 @@ const urlencodedParser=bodyParser.urlencoded({extended:false})
 //app.get('/user/login')             validate user login
 
 
-app.use('https://covid19-screening-app23.herokuapp.com/api/v1/data',screening)   //screening form 
-app.use('https://covid19-screening-app23.herokuapp.com/user',urlencodedParser,loginAuth)  //user validation
+app.use(__dirname+'/api/v1/data',screening)   //screening form 
+app.use('/user',urlencodedParser,loginAuth)  //user validation
 
 
 
