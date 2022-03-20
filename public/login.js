@@ -5,7 +5,7 @@ const password=document.getElementById('password')
 const displayErr=document.getElementById('error');
 
 const redirectPage=()=>{
-    window.location.replace("/https://covid19-screening-app23.herokuapp.com/cards.html")
+    window.location.replace("https://covid19-screening-app23.herokuapp.com/cards.html")
 }
 
 login.addEventListener('click',async (e)=>{
@@ -14,7 +14,7 @@ login.addEventListener('click',async (e)=>{
     const Password=password.value;
     var response;
     try{
-        await axios.post('/https://covid19-screening-app23.herokuapp.com/user/login',{user:User,password:Password})
+        await axios.post('/user/login',{user:User,password:Password})
         .then((e)=>{response=e})
         user.value='';
         password.value='';
