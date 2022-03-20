@@ -32,11 +32,11 @@ app.use('/user',urlencodedParser,loginAuth)  //user validation
 
 
 
-const port=process.env.PORT || 3000;
+const port=3000;
 const start=async ()=>{
     try{
         await connectDB();
-        app.listen(port,console.log(`server listening on port:${port}`))
+        app.listen(process.env.PORT ||port,console.log(`server listening`))
     }catch(error){
         console.log(error)
     }
