@@ -3,7 +3,7 @@
 const box=document.getElementById('container');
 const getData=async ()=>{
     try{
-        const {data:{Data}}=await axios.get('/api/v1/data')
+        const {data:{Data}}=await axios.get('/https://covid19-screening-app23.herokuapp.com/api/v1/data')
         const allData=Data.map((obj)=>{
            return `
         <ul class="data" id="box">
@@ -39,7 +39,7 @@ card.addEventListener('click',async (e)=>{
     if(e.target.className==="deleteButton"){    
     const id=e.target.dataset.id
     try{
-        await axios.delete(`/api/v1/data/${id}`)
+        await axios.delete(`/https://covid19-screening-app23.herokuapp.com/api/v1/data/${id}`)
         getData()
     }catch(error){
         console.log(error)
