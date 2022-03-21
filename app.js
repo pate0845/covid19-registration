@@ -35,7 +35,7 @@ app.use('/user',urlencodedParser,loginAuth)  //user validation
 const port=3000;
 const start=async ()=>{
     try{
-        await connectDB;
+        await connectDB();
         app.listen(process.env.PORT ||port,console.log(`server listening`))
     }catch(error){
         console.log(error)
