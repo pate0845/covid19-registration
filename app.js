@@ -9,9 +9,8 @@ const bodyParser=require('body-parser');
 //middleware
 app.use(express.json());
 app.use(express.static('public'));
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/screening-form.html')
-  });
+
+
 
 const urlencodedParser=bodyParser.urlencoded({extended:false})  
 
@@ -33,13 +32,16 @@ app.use('https://covid19-screening-app23.herokuapp.com/user',urlencodedParser,lo
 
 
 
+app.set('port', (process.env.PORT || 5000));
 
 const start=async ()=>{
     try{
         await connectDB();
-        app.listen(process.env.PORT ||3000,function(){
-            console.log(`Server Running at port`)
-        })
+        app.get('/', (req, res) => {
+            res.sendFile(__dirname + '/public/screening-form.html')
+        }).listen(app.get('port'), function() {
+            console.log('App is running, server is listening on port ', app.get('port'));
+        });
     }catch(error){
         console.log(error)
     }
