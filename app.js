@@ -38,7 +38,7 @@ const PORT=process.env.PORT || 5000;
 
 const start=async ()=>{
     try{
-        app.listen(PORT,'0.0.0.0',()=>{console.log(`Server listening at port ${PORT}`)});
+        app.listen(PORT,()=>{console.log(`Server listening at port ${PORT}`)});
         await connectDB();
     }catch(error){
         console.log(error)
