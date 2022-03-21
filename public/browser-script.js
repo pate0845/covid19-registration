@@ -29,7 +29,7 @@ const submitForm=async(e)=>{
     const Date=date.value;
     var d;
     try{
-        await axios.post('/https://covid19-screening-app23.herokuapp.com/api/v1/data',{
+        await axios.post('/api/v1/data',{
             fName,lName,Email,PhoneNumber,EmployeeId,VaccineStatus,Symptoms,TravelStatus,Carrier
             ,Information,Date
         })
@@ -83,7 +83,7 @@ const convertToString=(obj)=>{
 //edit data api/v1/data/:{id}
 const loadData=async () =>{
     try{
-        let {data:{data}}=await axios.get(`/https://covid19-screening-app23.herokuapp.com/api/v1/data/${document.URL.split('?id=')[1]}`)
+        let {data:{data}}=await axios.get(`/api/v1/data/${document.URL.split('?id=')[1]}`)
         data=convertToString(data);
         firstName.value=data.fName;
         lastName.value=data.lName;
@@ -117,7 +117,7 @@ const commitChange=async ()=>{
     const Information=information.checked;
     const Date=date.value;
     try{
-        let {data:{data}}=await axios.patch(`/https://covid19-screening-app23.herokuapp.com/api/v1/data/${document.URL.split('?id=')[1]}`,{
+        let {data:{data}}=await axios.patch(`/api/v1/data/${document.URL.split('?id=')[1]}`,{
                 fName:fName,
                 lName:lName,
                 Email:Email,
@@ -131,7 +131,7 @@ const commitChange=async ()=>{
                 Date:Date
          }) 
          if(data){
-                window.location.replace('/https://covid19-screening-app23.herokuapp.com/cards.html');                
+                window.location.replace('/cards.html');                
             }
     }catch(error){
         const e=document.getElementById('err')

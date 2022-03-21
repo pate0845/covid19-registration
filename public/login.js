@@ -5,7 +5,7 @@ const password=document.getElementById('password')
 const displayErr=document.getElementById('error');
 
 const redirectPage=()=>{
-    window.location.replace("https://covid19-screening-app23.herokuapp.com/cards.html")
+    window.location.replace("./cards.html")
 }
 
 login.addEventListener('click',async (e)=>{
