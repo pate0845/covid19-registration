@@ -10,7 +10,9 @@ const bodyParser=require('body-parser');
 app.use(express.json());
 app.use(express.static('public'));
 
-
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/screening-form.html')
+})
 
 const urlencodedParser=bodyParser.urlencoded({extended:false})  
 
@@ -32,16 +34,12 @@ app.use('/user',urlencodedParser,loginAuth)  //user validation
 
 
 
-app.set('port', (process.env.PORT || 4000));
+const PORT=process.env.PORT || 5000;
 
 const start=async ()=>{
     try{
+        app.listen(PORT,'0.0.0.0',()=>{console.log(`Server listening at port ${PORT}`)});
         await connectDB();
-        app.get('/', (req, res) => {
-            res.sendFile(__dirname + '/public/screening-form.html')
-        }).listen(app.get('port'),'0.0.0.0', function() {
-            console.log('App is running, server is listening on port ', app.get('port'));
-        });
     }catch(error){
         console.log(error)
     }
