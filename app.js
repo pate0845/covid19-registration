@@ -32,11 +32,11 @@ app.use('https://covid19-screening-app23.herokuapp.com/user',urlencodedParser,lo
 
 
 
-const port=3000;
+const port=process.env.PORT ||3000;
 const start=async ()=>{
     try{
         await connectDB();
-        app.listen(process.env.PORT ||port,console.log(`server listening`))
+        app.listen(port,console.log(`server listening`))
     }catch(error){
         console.log(error)
     }
