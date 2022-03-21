@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/screening-form.html')
   });
 
-const urlencodedParser=bodyParser.urlencoded({extended:false})  
+//const urlencodedParser=bodyParser.urlencoded({extended:false})  
 
 
 //routes
@@ -28,7 +28,7 @@ const urlencodedParser=bodyParser.urlencoded({extended:false})
 
 
 app.use('/api/v1/data',screening)   //screening form 
-app.use('/user',urlencodedParser,loginAuth)  //user validation
+app.use('/user',loginAuth)  //user validation
 
 
 
