@@ -7,8 +7,8 @@ const connectDB=()=>{
         useCreateIndex:true},
         (err)=>{
             if(err)console.log(err);
+            else console.log('Connected to DB');
         })
-    .then(()=>{console.log('Connected to database')})
     .catch((e)=>{console.log(e)});
 }
 
