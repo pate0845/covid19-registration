@@ -32,7 +32,7 @@ app.use('https://covid19-screening-app23.herokuapp.com/user',urlencodedParser,lo
 
 
 
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 4000));
 
 const start=async ()=>{
     try{
