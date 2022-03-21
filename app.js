@@ -24,12 +24,12 @@ const urlencodedParser=bodyParser.urlencoded({extended:false})
 //app.patch('/api/v1/data/:id')      edit data by id 
 //app.delete('/api/v1/data/:id')     delete data of employee by id
 
-//app.get('/user')                   add new user to database
-//app.get('/user/login')             validate user login
+//app.post('/user')                   add new user to database
+//app.post('/user/login')             validate user login
 
 
 app.use('/api/v1/data',screening)   //screening form 
-app.use('/user',urlencodedParser,loginAuth)  //user validation
+app.use('covid19-screening-app23.herokuapp.com/user',urlencodedParser,loginAuth)  //user validation
 
 
 
