@@ -33,6 +33,7 @@ app.use('/user',urlencodedParser,loginAuth)  //user validation
 
 
 const port=3000;
+
 const start=async ()=>{
     try{
         await connectDB;
