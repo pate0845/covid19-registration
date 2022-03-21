@@ -39,7 +39,7 @@ const start=async ()=>{
         await connectDB();
         app.get('/', (req, res) => {
             res.sendFile(__dirname + '/public/screening-form.html')
-        }).listen(app.get('port'), function() {
+        }).listen(app.get('port'),'0.0.0.0', function() {
             console.log('App is running, server is listening on port ', app.get('port'));
         });
     }catch(error){
