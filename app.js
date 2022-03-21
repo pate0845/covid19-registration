@@ -35,7 +35,7 @@ app.use('covid19-screening-app23.herokuapp.com/user',urlencodedParser,loginAuth)
 const port=3000;
 const start=async ()=>{
     try{
-        await connectDB();
+        await connectDB;
         app.listen(process.env.PORT ||port,console.log(`server listening`))
     }catch(error){
         console.log(error)
