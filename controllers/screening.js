@@ -28,6 +28,15 @@ const convertToBoolean=(obj)=>{
     return newObj;
 }
 
+const validateEmail=(email)=>{
+    var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+    if(reg.test(email)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 //post the form data
 const postData=async (req,res)=>{
     try{
@@ -39,6 +48,9 @@ const postData=async (req,res)=>{
     if(fName,lName,Email,PhoneNumber,EmployeeId,VaccineStatus,Symptoms,TravelStatus,Carrier
         ,Information,Date===''){
         return res.status(201).json({msg:`Please enter all values`})
+    }
+    if(validateEmail(Email)===false){
+        return res.status(201).json({msg:`Please enter valid email`})
     }
        await Screening.create( {
         fName,lName,Email,PhoneNumber,EmployeeId,VaccineStatus,Symptoms,TravelStatus,Carrier
