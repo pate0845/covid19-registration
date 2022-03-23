@@ -10,8 +10,8 @@ const travelStatus=document.getElementById('contamination')
 const carrier=document.getElementById('carrier')
 const information=document.getElementById('correctInfoProvided')
 const date=document.getElementById('date');
-
-
+const newdate=new Date();
+date.value=newdate.toDateString();
 
 //Post Data
 const submitForm=async(e)=>{
@@ -55,9 +55,18 @@ const submitForm=async(e)=>{
         travelStatus.value='';
         carrier.value='';
         information.checked=false;
-        date.value='';
     }catch(error){
         console.log(error)
+        const e=document.getElementById('err')
+        e.style=
+            `margin:30px 0;
+            text-align: center;
+            font-size: 16px;
+            color:red;`
+        e.innerHTML=`Enter all the values.`;
+        setTimeout(
+            val=>e.innerHTML='',1500)
+    
     }
   
 }
@@ -116,8 +125,9 @@ const commitChange=async ()=>{
     const Carrier=carrier.value;
     const Information=information.checked;
     const Date=date.value;
+    var er;
     try{
-        let {data:{data}}=await axios.patch(`/api/v1/data/${document.URL.split('?id=')[1]}`,{
+        await axios.patch(`/api/v1/data/${document.URL.split('?id=')[1]}`,{
                 fName:fName,
                 lName:lName,
                 Email:Email,
@@ -129,20 +139,26 @@ const commitChange=async ()=>{
                 Carrier:Carrier,
                 Information:Information,
                 Date:Date
-         }) 
-         if(data){
-                window.location.replace('/cards.html');                
-            }
-    }catch(error){
-        const e=document.getElementById('err')
+         })
+        .then((d)=>{
+            if(d.data.msg){
+            const e=document.getElementById('err')
             e.style=
                 `margin:30px 0;
                 text-align: center;
                 font-size: 16px;
                 color:red;`
-            e.innerHTML=`Need to enter all the value`;
-            setTimeout(
-                val=>e.innerHTML='',1500)  
+                e.innerHTML=d.data.msg;
+                setTimeout(
+                    val=>e.innerHTML='',3000) 
+            }
+            }) 
+        .then(()=>{
+                window.location.replace('/cards.html');                
+        })
+      
+    }catch(error){
+        console.log(error) 
     }
 }
 
