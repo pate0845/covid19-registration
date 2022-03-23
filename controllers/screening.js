@@ -29,7 +29,7 @@ const convertToBoolean=(obj)=>{
 }
 
 const validateEmail=(email)=>{
-    var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+    var reg = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i;
     if(reg.test(email)){
         return true;
     }else{
@@ -46,10 +46,10 @@ const postData=async (req,res)=>{
         ,Information,Date
     }=f;
     if(fName,lName,Email,PhoneNumber,EmployeeId,VaccineStatus,Symptoms,TravelStatus,Carrier
-        ,Information,Date===''){
+        ,Information===''){
         return res.status(201).json({msg:`Please enter all values`})
     }
-    if(validateEmail(Email)===false){
+    if(validateEmail(Email)===false && Email!==''){
         return res.status(201).json({msg:`Please enter valid email`})
     }
        await Screening.create( {
@@ -80,16 +80,21 @@ const getData=async (req,res)=>{
 const updateData=async (req,res)=>{
     try{
         const {id}=req.params;
+        const {Email}=req.body;
+        if(validateEmail(Email)===false && Email!==''){
+            return res.status(201).json({msg:`Please enter valid email`})
+        }
         const data=await Screening.findByIdAndUpdate({_id:id},convertToBoolean(req.body),{
             new:true,
             runValidators:true
         })
         if(!data){
-            return res.status(404).json({msg:`no task with id:${taskID}`})
+            return res.status(201).json({msg:`no task with id:${taskID}`})
         }
         res.status(200).json({data})
     }catch(error){
-        res.status(500).json({msg:error})
+        console.log(error)
+        res.status(500).json({msg:`Need to enter all the values`})
     }
 }
 
